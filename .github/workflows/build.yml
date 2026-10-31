@@ -17,11 +17,11 @@ jobs:
         java-version: '21'
         distribution: 'zulu'
 
-    - name: Setup Android SDK
+    - name: Setup Android SDK and NDKs
       run: |
         export ANDROID_HOME=/usr/local/lib/android/sdk
         yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses
-        $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager "platforms;android-34" "build-tools;34.0.0" "ndk;29.0.13113456"
+        $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager "platforms;android-34" "build-tools;34.0.0" "ndk;29.0.13113456" "ndk;27.3.13750724"
 
     - name: Setup Rust Toolchain
       uses: dtolnay/rust-toolchain@stable
